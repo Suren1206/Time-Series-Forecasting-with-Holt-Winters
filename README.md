@@ -84,19 +84,27 @@ Understanding these failure modes is essential for responsible use of Holt–Win
 
 This project demonstrates that Holt–Winters is effective when the data exhibits a stable trend and consistent seasonality, and when changes in structure occur gradually. Its strength lies in producing smooth, interpretable forecasts under these conditions. However, the model’s behavior is governed by fixed assumptions about component evolution, making it inherently slow to adapt to abrupt regime changes. Understanding these dynamics—rather than optimizing parameters for marginal accuracy gains—is critical for using the model responsibly.
 
-11. What This Project Does Not Do
+11. Choice of Dataset and Scope Delimitation
+
+(a) Why choose didactic dataset like AirPassengers ?
+    • Adversarial dataset → is needed when we reach a need to challenge and break models. I felt AirPassengers is excellent for learning
+    • Goal of this project is to see and understand how the chosen models works; I intend to choose an Adversarial data set in my next project to review if my understanding is real.
+
+(b) The Scope of the project is only to see and a get a feel of model functionality & high level understanding of how parameter choices impact the model & a glance of sensitivity analysis. The exploration ended with a clarity that Depth in Detailing need not translate to Real Value
+
+13. What This Project Does Not Do
 
 This project intentionally avoids hyperparameter optimization, exhaustive grid searches, and leaderboard-style benchmarking. It does not compare Holt–Winters against machine learning or deep learning models, nor does it aim to maximize forecast accuracy on this dataset. These choices are deliberate, keeping the focus on model behavior, assumptions, and limitations rather than competitive performance.
 
-12. Next Steps
+13. Next Steps
 
 Future work will extend this analysis by contrasting Holt–Winters with alternative forecasting approaches on more challenging datasets. This includes regression-based models, ARIMA-family models, and machine learning methods capable of handling longer memory, nonlinearity, and regime change. These extensions will explore when classical statistical models remain sufficient and when more adaptive approaches become necessary.
 
-13. Repository Structure
+14. Repository Structure
 
 The repository is organized to separate data, analysis, and reusable code. Raw and processed datasets are clearly distinguished to preserve data provenance. Jupyter notebooks capture exploratory reasoning and narrative analysis, while Python modules in the src/ directory contain reusable modeling and evaluation logic. Figures used for reporting are stored separately to support reuse in documentation or presentations.
 
-14. References
+15. References
 
 Holt, C. C. (1957). Forecasting trends and seasonals by exponentially weighted moving averages.
 
