@@ -96,5 +96,7 @@ The repository is organized to separate data, analysis, and reusable code. Raw a
 14. References
 
 Holt, C. C. (1957). Forecasting trends and seasonals by exponentially weighted moving averages.
+
 Winters, P. R. (1960). Forecasting sales by exponentially weighted moving averages.
+
 Hyndman, R. J., & Athanasopoulos, G. Forecasting: Principles and Practice.
