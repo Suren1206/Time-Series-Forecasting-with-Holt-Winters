@@ -52,7 +52,7 @@ Before reasoning about smoothing parameters, a targeted sensitivity check is per
 
 Specifically, a sudden upward shift is applied to the level of the series in the later portion of the dataset, representing an abrupt structural change rather than random noise. The seasonal structure and model configuration are otherwise left unchanged. The model is then re-applied without re-tuning parameters, ensuring that observed effects are attributable solely to the data perturbation.
 
-The resulting forecasts exhibit a partial and lagged adjustment to the level shock, followed by a geometrically decaying correction over subsequent periods. While the disturbance permanently influences the level estimate, seasonal alignment is temporarily disrupted only in the affected cycle and gradually stabilizes in later cycles. This behavior reflects the model’s reliance on exponential decay: recent information is weighted more heavily, but past states are never fully discarded.
+The resulting forecasts exhibit a partial and lagged adjustment to the level shock, followed by a geometrically decaying correction over subsequent periods. While the disturbance permanently influences the level estimate, seasonal alignment is temporarily disrupted only in the affected cycle and the following cycle, there after the revised forecasts catches up the ealier one. This behavior reflects the model’s reliance on exponential decay: recent information is weighted more heavily, but past states are never fully discarded.
 
 This experiment demonstrates both the strength and limitation of Holt–Winters. The model remains stable and does not overreact to isolated shocks, but it is inherently slow to adapt to abrupt regime changes. The sensitivity check provides concrete evidence of how assumption violations manifest in practice and sets the context for subsequent parameter reasoning and failure analysis.
 
@@ -67,6 +67,8 @@ The trend parameter (β) governs how quickly the estimated slope adapts. In this
 The seasonal parameter (γ) determines how rapidly seasonal indices are revised. The seasonal pattern in AirPassengers is strong but highly stable across years. Slow seasonal updating preserves this structure and prevents year-to-year deviations from being misinterpreted as genuine change. Higher γ values exaggerate seasonal swings by overreacting to temporary irregularities, while lower values treat such deviations as noise.
 
 Importantly, parameter choices are not presented as optimal values, but as behavioral postures that align model responsiveness with the observed data regime. The emphasis is on understanding how each parameter influences adaptation dynamics and on identifying conditions under which these choices would fail, rather than on achieving marginal gains in accuracy.
+
+8B ) As an extension of point 8, how the manually chosen parameters safeguard against temporary disruption was also studied out of curiousity. Though the immediate seasonal cycle got disrupted heavily, with hand picked parameters, the revised forecasts was able to catch up the earlier forecasts within one season (earlier it was for 2 seasons). This also indicates the added potential of manual tuning which will be of interest during implementation.
 
 9. Failure Analysis
 
